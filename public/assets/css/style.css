@@ -37,6 +37,7 @@ body {
   }
   
   .intro-text {
-    color: white;
-    text-shadow: -1.5px 0 #355021, 0 1.5px #5e5b96, 1.5px 0 #26d31d, 0 -1.5px #981b27;
+    font-size: 50%;
+    color: grey;
+    text-shadow: -1.5px 0 red, 0 1.5px red, 1.5px 0 red, 0 -1.5px red;
   }

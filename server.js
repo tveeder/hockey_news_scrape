@@ -9,7 +9,8 @@ var request = require("request");
 // require models
 var db = require("./models");
 
-// set a port
+// set a port 
+// process.env.PORT for Heroku
 var PORT = process.env.PORT || 3000;
 
 // initialize Express

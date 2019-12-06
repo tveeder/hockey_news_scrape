@@ -1,0 +1,68 @@
+<div class="parallax-container">
+  <div class="section no-pad-bot">
+    <div class="row center">
+      <div class="col s8 offset-s2 intro-text">
+        <h1>Saved Articles and Comments</h1>
+
+      </div>
+    </div>
+  </div>
+  <div class="parallax">
+    {{!-- <img src="/assets/images/background.jpg[]\]\\" alt="hockey rink" style="display: block;"> --}}
+  </div>
+</div>
+
+<div class="container">
+  {{!-- for each article in mongodb --}}
+  {{#each articleData}}
+  {{#if this.saved}}
+  {{!-- create a row, column, and card --}}
+  <div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content red -4">
+          <div class="row valign-wrapper">
+            <div class="col s8">
+              {{!-- title and summary from db go here --}}
+              <span class="card-title">{{this.title}}</span>
+              <p>{{this.summary}}</p>
+            </div>
+            <div class="col s4">
+              <img class="responsive-img" src="{{this.image}}" alt="article image">
+            </div>
+          </div>
+        </div>
+        <div class="card-action valign-wrapper center-align black darken-3">
+          <div class="col s4 card-links">
+            <a href="https://www.nhl.com{{this.link}}" class="white-text" style="margin: 0px;" target="_blank"><button class="btn">View Article</button></a>
+          </div>
+          {{!-- link to comments goes here --}}
+          <div class="col s4 card-links">
+            {{!-- modal trigger button --}}
+            <button class="waves-effect waves-light btn modal-trigger view-comments-button" data-target="comment-modal" data-dbid="{{this._id}}">Comments</button>
+            {{!-- modal content --}}
+            <div id="comment-modal" class="modal">
+              <div class="modal-content">
+                <h4 class="modal-title"></h4>
+                <div class="comment-display-root">
+                </div>
+                <textarea id="comment-input" class="materialize-textarea"></textarea>
+                <label class="active" for="comment-input">Add new comment</label>
+              </div>
+              <div class="modal-footer">
+                <button data-dbid="" class="modal-action modal-close waves-effect waves-green btn save-comment-button">Save Comment</button>
+                <button class="modal-action modal-close waves-effect waves-green btn">Close</button>
+              </div>
+            </div>
+          </div>
+          {{!-- delete button --}}
+          <div class="col s4 card-links">
+            <button data-dbid="{{this._id}}" class="btn delete-from-saved-button">Delete From Saved</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+  {{/each}}
+</div>
