@@ -1,49 +1,50 @@
 var mongoose = require("mongoose");
-
-// Save a reference to the Schema constructor
 var Schema = mongoose.Schema;
+var Note = require("./Note.js");
 
-// Using the Schema constructor, create a new UserSchema object
-// This is similar to a Sequelize model
 var ArticleSchema = new Schema({
-  // `title` is required and of type String
-  title: {
-    type: String,
-    required: true
-  },
-  // `summary` is required and of type String
-  summary: {
-    type: String,
-    required: true
-  },
-  // `link` is required and of type String
-  link: {
-    type: String,
-    required: true
-  },
-  // image link
-  image: {
-    type: String,
-    required: true
-  },
-  // defines whether or not article is saved
-  saved: {
-    type: Boolean,
-    default: false,
-    required: true
-  },
-  // link to comment model/table by using the ref and saving an obj id with it. it's an array of objects so that we can have many comments
-  comments: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Comment"
+
+    title: {
+        type: String,
+        required: true,
+        trim: "A title is required"
+    },
+
+    link: {
+        type: String,
+        required: "A link is required",
+        match: [/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/, "Please enter a valid url"]
+    },
+
+    comments: {
+        type: String,
+        required: true
+    },
+
+    notes: [{
+        type: Schema.Types.ObjectId,
+        ref: "Note"
+    }],
+
+    createdAt: {
+        type: Date,
+        default: Date.now()
     }
-  ]
 
 });
 
-// This creates our model from the above schema, using mongoose's model method
-var Article = mongoose.model("Article", ArticleSchema);
+// clears array and removes deleted
+ArticleSchema.methods.cascadeDeleteNotes = function() {
+    this.notes.forEach(function(noteID, i) {
+        Note.deleteOne({ _id: noteID }).then(function(response) {}).catch(function(err) {
+            console.log(err);
+        });
 
-// Export the Article model
+    });
+
+};
+
+
+// create a model, Article using the schema above
+var Article = mongoose.model("Article", ArticleSchema);
 module.exports = Article;

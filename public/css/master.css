@@ -1,0 +1,46 @@
+.articleNote {
+    margin-right: 10px;
+}
+
+.articleNotesbtn,
+.articleDeleteBtn {
+    margin-top: 20px;
+}
+
+.articleNote {
+    font-size: 17px;
+    white-space: pre-wrap;
+    /* -- This preserves line-breaks -- */
+}
+
+.articleAddedDate {
+    font-style: italic;
+    margin-top: -10px;
+    font-size: 10px;
+}
+
+.noteAddedDate {
+    font-size: 8px;
+    margin-top: -2px;
+    font-style: italic;
+}
+
+h5>a {
+    color: black;
+}
+
+.container {
+    padding-top: 30px;
+}
+
+.header {
+    font-family: Impact, sans-serif;
+    text-shadow: #ccc -1px 0 3px, #ccc -2px 0 3px, #ccc -3px 1px 3px, #ccc -4px 1px 3px, #ccc -5px 1px 3px, #ccc -6px 2px 3px, #ccc -8px 2px 3px;
+    font-size: 90px;
+    font-weight: 700;
+    font-style: italic;
+    text-transform: uppercase;
+    transform: skewX(-4deg);
+    color: #000;
+    text-decoration: none;
+}
