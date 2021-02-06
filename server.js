@@ -42,3 +42,35 @@ app.set("view engine", "handlebars");
 app.listen(PORT, function() {
     console.log("App listening on PORT: " + PORT);
 });
+
+
+// MongoDB & Mongoose set up ==================================================
+// Set mongoose to leverage built in JavaScript ES6 Promises
+mongoose.Promise = Promise;
+
+// Database configuration with mongoose
+// testing URI - mongodb://localhost/newsScraper
+// production URI - mongodb://admin:jumpman23@ds145178.mlab.com:45178/heroku_xwm528cl
+// migrated URI - mongodb+srv://admin:jumpan23@cluster-xwm528cl.ajvod.mongodb.net/heroku_xwm528cl?retryWrites=true&w=majority
+// mongoose.connect("mongodb://localhost/newsScraper", {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// });
+
+mongoose.connect("mongodb+srv://tveeder:stocknews111@cluster0.35prx.mongodb.net/test?retryWrites=true&w=majority", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+var connection = mongoose.connection;
+
+// Show any mongoose errors
+connection.on("error", function(error) {
+    console.log("Mongoose Error: ", error);
+});
+
+// Once logged in to the db through mongoose, log a success message
+connection.once("open", function() {
+    console.log("Mongoose connection successful.");
+});
+
+var db = require("./models");
