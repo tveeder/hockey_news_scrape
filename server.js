@@ -48,15 +48,6 @@ app.listen(PORT, function() {
 // Set mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
 
-// Database configuration with mongoose
-// testing URI - mongodb://localhost/newsScraper
-// production URI - mongodb://admin:jumpman23@ds145178.mlab.com:45178/heroku_xwm528cl
-// migrated URI - mongodb+srv://admin:jumpan23@cluster-xwm528cl.ajvod.mongodb.net/heroku_xwm528cl?retryWrites=true&w=majority
-// mongoose.connect("mongodb://localhost/newsScraper", {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// });
-
 mongoose.connect("mongodb+srv://tveeder:stocknews111@cluster0.35prx.mongodb.net/test?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true
