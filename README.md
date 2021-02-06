@@ -1,1 +1,1 @@
-# hockey_news_scrape
+# news-scrape
