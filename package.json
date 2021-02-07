@@ -1,7 +1,7 @@
 {
-  "name": "hockey-news-scrape",
+  "name": "news-scrape",
   "version": "1.0.0",
-  "description": "",
+  "description": "news",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tveeder/hockey-news-scrape.git"
+    "url": "git+https://github.com/tveeder/news-scrape.git"
   },
-  "author": "",
+  "author": "tveeder",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tveeder/hockey-news-scrape/issues"
+    "url": "https://github.com/tveeder/news-scrape/issues"
   },
-  "homepage": "https://github.com/tveeder/hockey-news-scrape#readme",
+  "homepage": "https://github.com/tveeder/news-scrape#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.5",
